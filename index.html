@@ -309,14 +309,15 @@
       <h2 class="section-title">Taming overgrown gardens is our specialty</h2>
       <p class="section-intro">Don't let an overgrown lawn ruin the look of your property. See the difference a visit from My Little Garden Helper makes.</p>
     </div>
-    <div class="ba-grid reveal">
-      <div class="ba-card">
-        <img src="assets/before.webp" alt="Overgrown grass verge before brushcutting in the Yarra Valley" loading="lazy" />
-        <span class="ba-badge ba-badge--before">BEFORE</span>
-      </div>
-      <div class="ba-card">
-        <img src="assets/after.webp" alt="Neatly cut grass verge after garden maintenance in the Yarra Valley" loading="lazy" />
-        <span class="ba-badge ba-badge--after">AFTER</span>
+    <div class="reveal">
+      <div class="ba-slider" data-ba-slider>
+        <img class="ba-slider__img ba-slider__after" src="assets/lawn-after.webp" alt="Freshly mowed lawn with a Yarra Valley mountain view after garden maintenance" loading="lazy" />
+        <img class="ba-slider__img ba-slider__before" src="assets/lawn-before.webp" alt="Overgrown long grass on the same Yarra Valley block before mowing" loading="lazy" />
+        <span class="ba-slider__tag ba-slider__tag--before">BEFORE</span>
+        <span class="ba-slider__tag ba-slider__tag--after">AFTER</span>
+        <div class="ba-slider__divider"><div class="ba-slider__handle">⟷</div></div>
+        <span class="ba-slider__hint">◄ Drag to compare ►</span>
+        <input type="range" min="0" max="100" value="50" class="ba-slider__range" aria-label="Drag to compare the lawn before and after mowing" />
       </div>
     </div>
   </div>

@@ -67,6 +67,41 @@
       revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
+    /* ---- Before/after comparison slider ---- */
+    document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
+      var range = slider.querySelector('.ba-slider__range');
+      if (!range) return;
+      var set = function (v) { slider.style.setProperty('--pos', v + '%'); };
+      set(range.value);
+      range.addEventListener('input', function () {
+        slider.classList.add('is-dragging', 'is-touched');
+        set(range.value);
+      });
+      var release = function () { slider.classList.remove('is-dragging'); };
+      range.addEventListener('pointerup', release);
+      range.addEventListener('pointercancel', release);
+      range.addEventListener('mouseleave', release);
+
+      // One-time gentle intro sweep when it scrolls into view
+      var played = false;
+      var playSweep = function () {
+        if (played) return; played = true;
+        var steps = [78, 26, 50], i = 0;
+        var tick = function () {
+          if (i >= steps.length) return;
+          set(steps[i]); range.value = steps[i]; i++;
+          setTimeout(tick, 750);
+        };
+        setTimeout(tick, 350);
+      };
+      if ('IntersectionObserver' in window) {
+        var io2 = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { playSweep(); io2.unobserve(e.target); } });
+        }, { threshold: 0.4 });
+        io2.observe(slider);
+      } else { playSweep(); }
+    });
+
     /* ---- Quote form (demo submit — swap action for Webflow/Formspree later) ---- */
     var form = document.querySelector('[data-quote-form]');
     if (form) {
