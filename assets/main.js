@@ -67,39 +67,80 @@
       revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
-    /* ---- Before/after comparison slider ---- */
+    /* ---- Before/after comparison slider (pointer + keyboard) ---- */
     document.querySelectorAll('[data-ba-slider]').forEach(function (slider) {
-      var range = slider.querySelector('.ba-slider__range');
-      if (!range) return;
-      var set = function (v) { slider.style.setProperty('--pos', v + '%'); };
-      set(range.value);
-      range.addEventListener('input', function () {
-        slider.classList.add('is-dragging', 'is-touched');
-        set(range.value);
-      });
-      var release = function () { slider.classList.remove('is-dragging'); };
-      range.addEventListener('pointerup', release);
-      range.addEventListener('pointercancel', release);
-      range.addEventListener('mouseleave', release);
+      var handle = slider.querySelector('.ba-slider__handle');
+      var dragging = false;
 
-      // One-time gentle intro sweep when it scrolls into view
+      function clamp(v) { return Math.max(0, Math.min(100, v)); }
+      function posFromX(clientX) {
+        var r = slider.getBoundingClientRect();
+        return clamp(((clientX - r.left) / r.width) * 100);
+      }
+      function setPos(v) {
+        slider.style.setProperty('--pos', v + '%');
+        if (handle) handle.setAttribute('aria-valuenow', Math.round(v));
+      }
+      function current() {
+        return parseFloat(getComputedStyle(slider).getPropertyValue('--pos')) || 50;
+      }
+
+      function start(e) {
+        dragging = true;
+        slider.classList.add('is-dragging', 'is-touched');
+        setPos(posFromX(e.clientX));
+        if (slider.setPointerCapture && e.pointerId != null) {
+          try { slider.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        e.preventDefault();
+      }
+      function move(e) { if (dragging) setPos(posFromX(e.clientX)); }
+      function end() { if (!dragging) return; dragging = false; slider.classList.remove('is-dragging'); }
+
+      slider.addEventListener('pointerdown', start);
+      slider.addEventListener('pointermove', move);
+      slider.addEventListener('pointerup', end);
+      slider.addEventListener('pointercancel', end);
+      window.addEventListener('pointerup', end);
+
+      if (handle) {
+        handle.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            slider.classList.add('is-touched');
+            setPos(clamp(current() + (e.key === 'ArrowLeft' ? -4 : 4)));
+            e.preventDefault();
+          }
+        });
+      }
+
+      // One-time gentle intro sweep (JS-animated, no CSS transition needed)
+      setPos(50);
       var played = false;
-      var playSweep = function () {
+      function animateTo(target, dur, done) {
+        if (dragging) { if (done) done(); return; }
+        var from = current(), t0 = null;
+        function step(ts) {
+          if (dragging) return;               // user grabbed it — hand over control
+          if (t0 === null) t0 = ts;
+          var t = Math.min(1, (ts - t0) / dur);
+          var e = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // easeInOut
+          setPos(from + (target - from) * e);
+          if (t < 1) requestAnimationFrame(step); else if (done) done();
+        }
+        requestAnimationFrame(step);
+      }
+      function sweep() {
         if (played) return; played = true;
-        var steps = [78, 26, 50], i = 0;
-        var tick = function () {
-          if (i >= steps.length) return;
-          set(steps[i]); range.value = steps[i]; i++;
-          setTimeout(tick, 750);
-        };
-        setTimeout(tick, 350);
-      };
+        animateTo(74, 550, function () {
+          animateTo(28, 650, function () { animateTo(50, 650); });
+        });
+      }
       if ('IntersectionObserver' in window) {
         var io2 = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) { if (e.isIntersecting) { playSweep(); io2.unobserve(e.target); } });
-        }, { threshold: 0.4 });
+          entries.forEach(function (en) { if (en.isIntersecting) { setTimeout(sweep, 350); io2.unobserve(en.target); } });
+        }, { threshold: 0.35 });
         io2.observe(slider);
-      } else { playSweep(); }
+      } else { sweep(); }
     });
 
     /* ---- Quote form (demo submit — swap action for Webflow/Formspree later) ---- */
