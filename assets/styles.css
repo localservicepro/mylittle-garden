@@ -131,8 +131,7 @@ input, select, textarea, button { font-family: inherit; }
 /* ---------- Header / nav ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 60;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.97);
   border-bottom: 1px solid var(--line);
 }
 .site-header__inner {
