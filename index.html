@@ -28,7 +28,9 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" /></noscript>
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high" />
 <link rel="stylesheet" href="assets/styles.css" />
 
 <script type="application/ld+json">
@@ -107,7 +109,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="./" class="logo" aria-label="My Little Garden Helper home">
-      <img src="assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
+      <img decoding="async" src="assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
     </a>
 
     <nav class="nav" aria-label="Primary">
@@ -209,7 +211,7 @@
     <div class="services-grid">
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/lawn-mowing.webp" alt="Freshly mowed lawn with crisp edging in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🚜</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/lawn-mowing.webp" alt="Freshly mowed lawn with crisp edging in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🚜</span></div>
         <div class="service-card__body">
           <h3>Lawn Mowing &amp; Edging</h3>
           <p>Regular, reliable mowing and clean edging to keep your lawn neat, green and healthy — big blocks and small yards alike.</p>
@@ -218,7 +220,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/brushcutting.webp" alt="Overgrown grass being cleared by brushcutting in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🌾</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/brushcutting.webp" alt="Overgrown grass being cleared by brushcutting in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🌾</span></div>
         <div class="service-card__body">
           <h3>Brushcutting</h3>
           <p>Overgrown blocks, long grass and rough edges tackled with commercial brushcutters to reclaim your outdoor space.</p>
@@ -227,7 +229,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/hedge-trimming.webp" alt="Neatly trimmed hedge with Yarra Valley hills behind" loading="lazy" /><span class="service-card__icon">✂️</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/hedge-trimming.webp" alt="Neatly trimmed hedge with Yarra Valley hills behind" loading="lazy" /><span class="service-card__icon">✂️</span></div>
         <div class="service-card__body">
           <h3>Hedge Trimming</h3>
           <p>Precise shaping and trimming that keeps hedges dense, tidy and healthy — enhancing privacy and street appeal.</p>
@@ -236,7 +238,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/mulching.webp" alt="Fresh mulch laid around garden beds in a Yarra Valley garden" loading="lazy" /><span class="service-card__icon">🍂</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/mulching.webp" alt="Fresh mulch laid around garden beds in a Yarra Valley garden" loading="lazy" /><span class="service-card__icon">🍂</span></div>
         <div class="service-card__body">
           <h3>Mulching</h3>
           <p>Quality mulching to lock in moisture, suppress weeds and give your garden beds a rich, finished look.</p>
@@ -245,7 +247,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/after.webp" alt="Well maintained lawn and garden beds beside a Yarra Valley home" loading="lazy" /><span class="service-card__icon">🌳</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/after.webp" alt="Well maintained lawn and garden beds beside a Yarra Valley home" loading="lazy" /><span class="service-card__icon">🌳</span></div>
         <div class="service-card__body">
           <h3>Garden Maintenance</h3>
           <p>Ongoing garden care packages covering weeding, tidying, feeding and everything in between — season after season.</p>
@@ -254,7 +256,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/weed-control.webp" alt="Tidy weed-free garden bed after weed control treatment" loading="lazy" /><span class="service-card__icon">🌱</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/weed-control.webp" alt="Tidy weed-free garden bed after weed control treatment" loading="lazy" /><span class="service-card__icon">🌱</span></div>
         <div class="service-card__body">
           <h3>Weed Control</h3>
           <p>Effective weed control to keep beds, paths and lawns clear, so your garden stays low-maintenance and looking its best.</p>
@@ -263,7 +265,7 @@
       </article>
 
       <article class="service-card reveal">
-        <div class="service-card__media"><img src="assets/pruning.webp" alt="Pruned shrubs and flowering garden in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🌿</span></div>
+        <div class="service-card__media"><img decoding="async" src="assets/pruning.webp" alt="Pruned shrubs and flowering garden in the Yarra Valley" loading="lazy" /><span class="service-card__icon">🌿</span></div>
         <div class="service-card__body">
           <h3>Pruning</h3>
           <p>Careful pruning of shrubs and plants to encourage strong, healthy growth and beautiful blooms year after year.</p>
@@ -279,7 +281,7 @@
 <section class="section" id="about" style="background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="container about-grid">
     <div class="about__media reveal">
-      <img src="assets/contact.webp" alt="My Little Garden Helper trailer and equipment ready for a job in the Yarra Valley" loading="lazy" />
+      <img decoding="async" src="assets/contact.webp" alt="My Little Garden Helper trailer and equipment ready for a job in the Yarra Valley" loading="lazy" />
       <div class="about__badge">
         <div class="about__badge-title">Owner-operated</div>
         <div class="about__badge-text">You deal directly with the person doing the work.</div>
@@ -311,8 +313,8 @@
     </div>
     <div class="reveal">
       <div class="ba-slider" data-ba-slider>
-        <img class="ba-slider__img ba-slider__after" src="assets/lawn-after.webp" alt="Freshly mowed lawn with a Yarra Valley mountain view after garden maintenance" loading="lazy" />
-        <img class="ba-slider__img ba-slider__before" src="assets/lawn-before.webp" alt="Overgrown long grass on the same Yarra Valley block before mowing" loading="lazy" />
+        <img decoding="async" class="ba-slider__img ba-slider__after" src="assets/lawn-after.webp" alt="Freshly mowed lawn with a Yarra Valley mountain view after garden maintenance" loading="lazy" />
+        <img decoding="async" class="ba-slider__img ba-slider__before" src="assets/lawn-before.webp" alt="Overgrown long grass on the same Yarra Valley block before mowing" loading="lazy" />
         <span class="ba-slider__tag ba-slider__tag--before">BEFORE</span>
         <span class="ba-slider__tag ba-slider__tag--after">AFTER</span>
         <div class="ba-slider__divider"></div>
@@ -433,7 +435,7 @@
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div>
-      <img src="assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
+      <img decoding="async" src="assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
       <p>Professional lawn mowing and garden maintenance serving the Yarra Valley and Eastern Melbourne suburbs.</p>
     </div>
     <div>
@@ -472,6 +474,6 @@
   </div>
 </footer>
 
-<script src="assets/main.js"></script>
+<script src="assets/main.js" defer></script>
 </body>
 </html>

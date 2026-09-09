@@ -22,7 +22,9 @@
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" /></noscript>
+<link rel="preload" as="image" href="../../assets/brushcutting.webp" fetchpriority="high" />
 <link rel="stylesheet" href="../../assets/styles.css" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mylittlegardenhelper.com.au/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.mylittlegardenhelper.com.au/services/"},{"@type":"ListItem","position":3,"name":"Brushcutting","item":"https://www.mylittlegardenhelper.com.au/services/brushcutting/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Brushcutting","provider":{"@type":"LocalBusiness","name":"My Little Garden Helper Pty Ltd","telephone":"+61493099984","url":"https://www.mylittlegardenhelper.com.au/"},"areaServed":["Yarra Valley","Three Bridges","Healesville","Yarra Glen","Warburton","Lilydale","Belgrave","Ferntree Gully","Eastern Melbourne"],"url":"https://www.mylittlegardenhelper.com.au/services/brushcutting/"}</script>
@@ -44,7 +46,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="../../" class="logo" aria-label="My Little Garden Helper home">
-      <img src="../../assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
+      <img decoding="async" src="../../assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="../../" class="nav__link">Home</a>
@@ -127,7 +129,7 @@
 <section class="section" style="background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="container split">
     <div class="split__media reveal">
-      <img src="../../assets/brushcutting.webp" alt="Brushcutting in the Yarra Valley by My Little Garden Helper" loading="lazy" />
+      <img decoding="async" src="../../assets/brushcutting.webp" alt="Brushcutting in the Yarra Valley by My Little Garden Helper" loading="lazy" />
     </div>
     <div class="reveal">
       <span class="eyebrow">What's included</span>
@@ -203,7 +205,7 @@
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div>
-      <img src="../../assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
+      <img decoding="async" src="../../assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
       <p>Professional lawn mowing and garden maintenance serving the Yarra Valley and Eastern Melbourne suburbs.</p>
     </div>
     <div>
@@ -242,6 +244,6 @@
   </div>
 </footer>
 
-<script src="../../assets/main.js"></script>
+<script src="../../assets/main.js" defer></script>
 </body>
 </html>

@@ -22,7 +22,9 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700;800&display=swap" /></noscript>
+<link rel="preload" as="image" href="../assets/hero.webp" fetchpriority="high" />
 <link rel="stylesheet" href="../assets/styles.css" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mylittlegardenhelper.com.au/"},{"@type":"ListItem","position":2,"name":"About","item":"https://www.mylittlegardenhelper.com.au/about/"}]}</script>
 </head>
@@ -42,7 +44,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="../" class="logo" aria-label="My Little Garden Helper home">
-      <img src="../assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
+      <img decoding="async" src="../assets/logo.webp" alt="My Little Garden Helper — lawn mowing and garden services Yarra Valley" width="180" height="58" />
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="../" class="nav__link">Home</a>
@@ -102,7 +104,7 @@
 <section class="section">
   <div class="container about-grid">
     <div class="about__media reveal">
-      <img src="../assets/contact.webp" alt="My Little Garden Helper equipment and trailer ready for a job in the Yarra Valley" loading="lazy" />
+      <img decoding="async" src="../assets/contact.webp" alt="My Little Garden Helper equipment and trailer ready for a job in the Yarra Valley" loading="lazy" />
       <div class="about__badge">
         <div class="about__badge-title">Owner-operated</div>
         <div class="about__badge-text">You deal directly with the person doing the work.</div>
@@ -170,7 +172,7 @@
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div>
-      <img src="../assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
+      <img decoding="async" src="../assets/logo.webp" alt="My Little Garden Helper logo" class="footer-logo" width="200" height="66" />
       <p>Professional lawn mowing and garden maintenance serving the Yarra Valley and Eastern Melbourne suburbs.</p>
     </div>
     <div>
@@ -209,6 +211,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js"></script>
+<script src="../assets/main.js" defer></script>
 </body>
 </html>
